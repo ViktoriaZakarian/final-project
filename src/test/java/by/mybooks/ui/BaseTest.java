@@ -8,7 +8,7 @@ public class BaseTest {
 
     @BeforeEach
     public void startFromHome() {
-        Driver.getDriver().get("https://makey.by/");
+        Driver.getDriver().get("https://mybooks.by/");
     }
 
     @AfterEach

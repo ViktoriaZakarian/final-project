@@ -33,10 +33,10 @@ public class LoginPage {
     }
 
     public String getTextYourEmail() {
-        return driver.findElement(By.xpath(LoginXpath.INPUT_EMAIL_XPATH)).getText();
+        return driver.findElement(By.xpath(LoginXpath.EMAIL_MESSAGE_XPATH)).getText();
     }
 
     public String getTextPassword() {
-        return driver.findElement(By.xpath(LoginXpath.INPUT_PASSWORD_XPATH)).getText();
+        return driver.findElement(By.xpath(LoginXpath.PASSWORD_MESSAGE_XPATH)).getText();
     }
 }

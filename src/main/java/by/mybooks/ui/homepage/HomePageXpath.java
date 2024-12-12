@@ -14,9 +14,12 @@ public class HomePageXpath {
     public static final String BUTTON_BASKET_XPATH = "//div[@class='ok-shcart-box']";
     public static final String IN_STOCK_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='В наличии']";
     public static final String NEW_YEAR_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Новый год']";
+    public static final String NEW_YEAR_TEXT_XPATH = "//h1[contains(text(), 'Новогодние подарки')]";
     public static final String NEW_PRODUCT_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Новинки']";
     public static final String BOOKS_FOR_CHILDREN_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Книги для детей']";
     public static final String FICTION_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Художественная литература']";
+    public static final String FICTION_TEXT_XPATH = "//h1[contains(text(), 'Художественная литература')]";
     public static final String ESOTERICISM_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Эзотерика']";
     public static final String PSYCHOLOGY_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Психология']";
+    public static final String BUTTON_NEXT_XPATH = "//i[@class='fa fa-chevron-right']";
 }

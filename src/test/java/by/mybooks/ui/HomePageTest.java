@@ -31,4 +31,28 @@ public class HomePageTest extends BaseTest {
 
         Assertions.assertEquals(HomePageMessage.PAYMENT_AND_DELIVERY_TEXT, homePage.getTextPaymentAndDelivery());
     }
+
+    @Test
+    @DisplayName("проверка открытия ссылки 'Художественная литература'")
+    public void test3() {
+
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickFictionLink();
+
+        Assertions.assertEquals(HomePageMessage.FICTION_TEXT, homePage.getTextFiction());
+    }
+
+    @Test
+    @DisplayName("проверка открытия ссылки 'Новый год'")
+    public void test4() {
+
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickNewYearLink();
+
+        Assertions.assertEquals(HomePageMessage.NEW_YEAR_TEXT, homePage.getTextNewYear());
+    }
 }

@@ -34,4 +34,22 @@ public class HomePage {
     public String getTextPaymentAndDelivery() {
         return driver.findElement(By.xpath(HomePageXpath.PAYMENT_AND_DELIVERY_TEXT_XPATH)).getText();
     }
+
+    public HomePage clickFictionLink() {
+        driver.findElement(By.xpath(HomePageXpath.FICTION_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextFiction() {
+        return driver.findElement(By.xpath(HomePageXpath.FICTION_TEXT_XPATH)).getText();
+    }
+
+    public HomePage clickNewYearLink() {
+        driver.findElement(By.xpath(HomePageXpath.NEW_YEAR_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextNewYear() {
+        return driver.findElement(By.xpath(HomePageXpath.NEW_YEAR_TEXT_XPATH)).getText();
+    }
 }

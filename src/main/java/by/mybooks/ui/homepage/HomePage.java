@@ -2,13 +2,8 @@ package by.mybooks.ui.homepage;
 
 import by.mybooks.driver.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage {
 
@@ -32,8 +27,7 @@ public class HomePage {
         return driver.findElement(By.xpath(HomePageXpath.ADDRESS_OF_THE_SHOO_TEXT_XPATH)).getText();
     }
 
-    public HomePage sendKeysSearchForABook() {
-        String book = "гарри поттер и философский камень";
+    public HomePage sendKeysSearchForABook(String book) {
         driver.findElement(By.xpath(HomePageXpath.SEARCH_STRING_XPATH)).sendKeys(book);
         return this;
     }
@@ -43,20 +37,28 @@ public class HomePage {
         return this;
     }
 
-    public HomePage clickButtonAddIntoBasket() {
+    public HomePage clickButtonAddIntoBasket(String bookXpath, String buttonAddTheBookIntoBasketXpath) {
         Actions action = new Actions(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(HomePageXpath.BOOK_HARRY_POTTER_XPATH)));
-        action.moveToElement(driver.findElement(By.xpath(HomePageXpath.BOOK_HARRY_POTTER_XPATH))).perform();
-        driver.findElement(By.xpath(HomePageXpath.BUTTON_ADD_BOOK_INTO_BASKET_XPATH)).click();
+        action.moveToElement(driver.findElement(By.xpath(bookXpath))).perform();
+        driver.findElement(By.xpath(buttonAddTheBookIntoBasketXpath)).click();
         return this;
     }
 
-    public void clickButtonBasket() {
+    public HomePage clickButtonBasket() {
         driver.findElement(By.xpath(HomePageXpath.BUTTON_BASKET_XPATH)).click();
+        return this;
     }
 
-    public String getTextBookInTheBasket() {
-        return driver.findElement(By.xpath(HomePageXpath.BOOK_IN_THE_BASKET_XPATH)).getText();
+    public String getTextBookInTheBasket(String titleOfTheBookXpath) {
+        return driver.findElement(By.xpath(titleOfTheBookXpath)).getText();
+    }
+
+    public HomePage clickPaymentAndDeliveryLink() {
+        driver.findElement(By.xpath(HomePageXpath.PAYMENT_AND_DELIVERY_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextPaymentAndDelivery() {
+        return driver.findElement(By.xpath(HomePageXpath.PAYMENT_AND_DELIVERY_TEXT_XPATH)).getText();
     }
 }

@@ -4,14 +4,13 @@ import by.mybooks.ui.homepage.HomePage;
 
 public class BasketStep {
 
-    public void addBookIntoBasket() {
+    public void addBookIntoBasket(String book, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
         HomePage homePage = new HomePage();
-
         homePage
                 .clickButtonAcceptAllCookies()
-                .sendKeysSearchForABook()
+                .sendKeysSearchForABook(book)
                 .clickButtonSearch()
-                .clickButtonAddIntoBasket()
+                .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
                 .clickButtonBasket();
     }
 }

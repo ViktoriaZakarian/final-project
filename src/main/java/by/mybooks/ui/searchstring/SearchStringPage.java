@@ -39,4 +39,13 @@ public class SearchStringPage {
     public String getTextBookInTheBasket(String titleOfTheBookXpath) {
         return driver.findElement(By.xpath(titleOfTheBookXpath)).getText();
     }
+
+    public SearchStringPage clickButtonAddTheSameExtraBook() {
+        driver.findElement(By.xpath(SearchStringXpath.BUTTON_ADD_THE_SAME_EXTRA_BOOK_XPATH)).click();
+        return this;
+    }
+
+    public String getAmountOfBooksInTheBasket(String amountOfBooksXpath) {
+        return driver.findElement(By.xpath(amountOfBooksXpath)).getAttribute("value");
+    }
 }

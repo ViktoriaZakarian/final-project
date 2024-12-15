@@ -52,4 +52,36 @@ public class HomePage {
     public String getTextNewYear() {
         return driver.findElement(By.xpath(HomePageXpath.NEW_YEAR_TEXT_XPATH)).getText();
     }
+
+    public HomePage clickButtonNext() {
+        driver.findElement(By.xpath(HomePageXpath.BUTTON_NEXT_XPATH)).click();
+        return this;
+    }
+
+    public HomePage clickBestsellersLink() {
+        driver.findElement(By.xpath(HomePageXpath.BESTSELLERS_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextBestsellers() {
+        return driver.findElement(By.xpath(HomePageXpath.BESTSELLERS_TEXT_XPATH)).getText();
+    }
+
+    public HomePage clickComputerLiteratureLink() {
+        driver.findElement(By.xpath(HomePageXpath.COMPUTER_LITERATURE_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextComputerLiterature() {
+        return driver.findElement(By.xpath(HomePageXpath.COMPUTER_LITERATURE_TEXT_XPATH)).getText();
+    }
+
+    public HomePage clickMedicalLiteratureLink() {
+        driver.findElement(By.xpath(HomePageXpath.MEDICAL_LITERATURE_LINK_XPATH)).click();
+        return this;
+    }
+
+    public String getTextMedicalLiterature() {
+        return driver.findElement(By.xpath(HomePageXpath.MEDICAL_LITERATURE_TEXT_XPATH)).getText();
+    }
 }

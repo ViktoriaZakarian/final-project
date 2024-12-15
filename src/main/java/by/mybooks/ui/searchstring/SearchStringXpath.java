@@ -14,6 +14,15 @@ public class SearchStringXpath {
             "'/hudozhestvennaya_literatura/fantastika_fentezi_mistika/zarubezhnaya_fantastika/golodnye_igry_i_vspyhnet_plamya_soyka-peresmeshnica/']";
 
     public static final String BOOK_THE_MAZE_RUNNER_XPATH = "//meta[@content='2']//..//div[@class='ok-product__main ']";
-    public static final String BUTTON_ADD_BOOK_THE_MAZE_RUNNER_INTO_BASKET_XPATH = "//meta[@data-id='1029020']//..//button[@data-gtm-id='add-to-cart-product']";
-    public static final String BOOK_THE_MAZE_RUNNER_IN_THE_BASKET_XPATH = "//a[@href='/hudozhestvennaya_literatura/fantastika_fentezi_mistika/zarubezhnaya_fantastika/Beguschiy_v_Labirinte2/']";
+    public static final String BUTTON_ADD_BOOK_THE_MAZE_RUNNER_INTO_BASKET_XPATH = "//meta[@data-id='1029020']" +
+            "//..//button[@data-gtm-id='add-to-cart-product']";
+    public static final String BOOK_THE_MAZE_RUNNER_IN_THE_BASKET_XPATH = "//a[@href=" +
+            "'/hudozhestvennaya_literatura/fantastika_fentezi_mistika/zarubezhnaya_fantastika/Beguschiy_v_Labirinte2/']";
+
+    public static final String BOOK_MURDER_ON_THE_ORIENT_EXPRESS_XPATH = "//div[@data-cart-id='836120']";
+    public static final String BUTTON_ADD_BOOK_MURDER_ON_THE_ORIENT_EXPRESS_INTO_BASKET_XPATH ="//meta[@data-id='1308108']" +
+            "//..//button[@data-gtm-id='add-to-cart-product']";
+    public static final String BOOK_MURDER_ON_THE_ORIENT_EXPRESS_IN_THE_BASKET_XPATH = "//a[@href='/Novinki/ubiystvo-v-vostochnom-ekspresse-kristi-a/']";
+    public static final String BUTTON_ADD_THE_SAME_EXTRA_BOOK_XPATH = "//div[@class='ok-input-number__more']";
+    public static final String THE_AMOUNT_OF_BOOKS_IN_THE_BASKET_XPATH = "//input[@id='item_836120']";
 }

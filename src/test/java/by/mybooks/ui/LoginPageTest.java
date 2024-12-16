@@ -4,15 +4,22 @@ import by.mybooks.domain.Users;
 import by.mybooks.ui.login.LoginMessage;
 import by.mybooks.ui.login.LoginPage;
 import by.mybooks.ui.steps.LoginStep;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class LoginPageTest extends BaseTest {
 
+    private static final Logger logger = LogManager.getLogger();
+
     @Test
     @DisplayName("проверка формы логина с пустыми значениями email и password")
-    public void test1() {
+    public void testLoginFormWithEmptyEmailAndEmptyPassword() {
+
+        logger.info("НАЧАЛО - Тест testLoginFormWithEmptyEmailAndEmptyPassword() " +
+                "проверка формы логина с пустыми значениями email и password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithNoData());
@@ -20,11 +27,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - Тест testLoginFormWithEmptyEmailAndEmptyPassword() " +
+                "проверка формы логина с пустыми значениями email и password");
     }
 
     @Test
     @DisplayName("проверка формы логина с валидными значениями email и password")
-    public void test2() {
+    public void testLoginFormWithValidEmailAndValidPassword() {
+
+        logger.info("НАЧАЛО - Тест testLoginFormWithEmptyEmailAndEmptyPassword() " +
+                "проверка формы логина с валидными значениями email и password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithValidData());
@@ -32,11 +45,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - Тест testLoginFormWithEmptyEmailAndEmptyPassword() " +
+                "проверка формы логина с валидными значениями email и password");
     }
 
     @Test
     @DisplayName("проверка формы логина с валидным значением email и пустым значением password")
-    public void test3() {
+    public void testLoginFormWithValidEmailAndEmptyPassword() {
+
+        logger.info("НАЧАЛО - Тест testLoginFormWithValidEmailAndEmptyPassword() " +
+                "проверка формы логина с валидным значением email и пустым значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithValidEmailAndNoPassword());
@@ -44,11 +63,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - Тест testLoginFormWithValidEmailAndEmptyPassword() " +
+                "проверка формы логина с валидным значением email и пустым значением password");
     }
 
     @Test
     @DisplayName("проверка формы логина с пустым значением email и валидным значением password")
-    public void test4() {
+    public void testLoginFormWithEmptyEmailAndValidPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithEmptyEmailAndValidPassword() " +
+                "проверка формы логина с пустым значением email и валидным значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithNoEmailAndValidPassword());
@@ -56,11 +81,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithEmptyEmailAndValidPassword() " +
+                "проверка формы логина с пустым значением email и валидным значением password");
     }
 
     @Test
     @DisplayName("проверка формы логина с пустым значением email и невалидным значением password")
-    public void test5() {
+    public void testLoginFormWithEmptyEmailAndInvalidPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithEmptyEmailAndInvalidPassword() " +
+                "проверка формы логина с пустым значением email и невалидным значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithNoEmailAndInvalidPassword());
@@ -68,11 +99,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithEmptyEmailAndInvalidPassword() " +
+                "проверка формы логина с пустым значением email и невалидным значением password");
     }
 
     @Test
     @DisplayName("проверка формы логина с невалидным значением email и пустым значением password")
-    public void test6() {
+    public void testLoginFormWithInvalidEmailAndEmptyPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithInvalidEmailAndEmptyPassword() " +
+                "проверка формы логина с невалидным значением email и пустым значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithInvalidEmailAndNoPassword());
@@ -80,11 +117,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithInvalidEmailAndEmptyPassword() " +
+                "проверка формы логина с невалидным значением email и пустым значением password");
     }
 
     @Test
     @DisplayName("проверка формы логина с невалидными значениями email и password")
-    public void test7() {
+    public void testLoginFormWithInvalidEmailAndInvalidPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithInvalidEmailAndInvalidPassword() " +
+                "проверка формы логина с невалидными значениями email и password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithInvalidData());
@@ -92,11 +135,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithInvalidEmailAndInvalidPassword() " +
+                "проверка формы логина с невалидными значениями email и password");
     }
 
     @Test
     @DisplayName("проверка формы логина с невалидным значением email и валидным значением password")
-    public void test8() {
+    public void testLoginFormWithInvalidEmailAndValidPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithInvalidEmailAndValidPassword() " +
+                "проверка формы логина с невалидным значением email и валидным значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithInvalidEmailAndValidPassword());
@@ -104,11 +153,17 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithInvalidEmailAndValidPassword() " +
+                "проверка формы логина с невалидным значением email и валидным значением password");
     }
 
     @Test
     @DisplayName("проверка формы логина с валидным значением email и невалдиным значением password")
-    public void test9() {
+    public void testLoginFormWithValidEmailAndInvalidPassword() {
+
+        logger.info("НАЧАЛО - testLoginFormWithValidEmailAndInvalidPassword() " +
+                "проверка формы логина с валидным значением email и невалдиным значением password");
 
         LoginStep loginStep = new LoginStep();
         loginStep.fillFormAndSubmit(Users.getUserWithValidEmailAndInvalidPassword());
@@ -116,5 +171,8 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         Assertions.assertEquals(LoginMessage.YOUR_EMAIL_MESSAGE, loginPage.getTextYourEmail());
         Assertions.assertEquals(LoginMessage.PASSWORD_MESSAGE, loginPage.getTextPassword());
+
+        logger.info("КОНЕЦ - testLoginFormWithValidEmailAndInvalidPassword() " +
+                "проверка формы логина с валидным значением email и невалдиным значением password");
     }
 }

@@ -2,8 +2,10 @@ package by.mybooks.ui;
 
 import by.mybooks.ui.homepage.HomePage;
 import by.mybooks.ui.homepage.HomePageMessage;
+import by.mybooks.ui.steps.CatalogStep;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,7 +34,9 @@ public class HomePageTest extends BaseTest {
 
     @Test
     @DisplayName("проверка открытия ссылки 'Оплата и доставка'")
-    public void test2() {
+    public void testOpenPaymentAndDeliveryLink() {
+
+        logger.info("НАЧАЛО - testOpenPaymentAndDeliveryLink() проверка открытия ссылки 'Оплата и доставка'");
 
         HomePage homePage = new HomePage();
         homePage
@@ -40,6 +44,8 @@ public class HomePageTest extends BaseTest {
                 .clickPaymentAndDeliveryLink();
 
         Assertions.assertEquals(HomePageMessage.PAYMENT_AND_DELIVERY_TEXT, homePage.getTextPaymentAndDelivery());
+
+        logger.info("КОНЕЦ - testOpenPaymentAndDeliveryLink() проверка открытия ссылки 'Оплата и доставка'");
     }
 
     @Test
@@ -80,11 +86,10 @@ public class HomePageTest extends BaseTest {
 
         logger.info("НАЧАЛО - Тест testOpenBestsellersLink() проверка открытия ссылки 'Бестселлеры'");
 
+        CatalogStep step = new CatalogStep();
+        step.goToTheSecondPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage
-                .clickButtonAcceptAllCookies()
-                .clickButtonNext()
-                .clickBestsellersLink();
+        homePage.clickBestsellersLink();
 
         Assertions.assertEquals(HomePageMessage.BESTSELLERS_TEXT, homePage.getTextBestsellers());
 
@@ -97,12 +102,10 @@ public class HomePageTest extends BaseTest {
 
         logger.info("НАЧАЛО - Тест testOpenComputerLiteratureLink() проверка открытия ссылки 'Компьютерная литература'");
 
+        CatalogStep step =new CatalogStep();
+        step.goToTheThirdPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage
-                .clickButtonAcceptAllCookies()
-                .clickButtonNext()
-                .clickButtonNext()
-                .clickComputerLiteratureLink();
+        homePage.clickComputerLiteratureLink();
 
         Assertions.assertEquals(HomePageMessage.COMPUTER_LITERATURE_TEXT, homePage.getTextComputerLiterature());
 
@@ -115,13 +118,10 @@ public class HomePageTest extends BaseTest {
 
         logger.info("НАЧАЛО - Тест testOpenMedicalLiteratureLink() проверка открытия ссылки 'Медицинская литература'");
 
+        CatalogStep step = new CatalogStep();
+        step.goToTheFourthPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage
-                .clickButtonAcceptAllCookies()
-                .clickButtonNext()
-                .clickButtonNext()
-                .clickButtonNext()
-                .clickMedicalLiteratureLink();
+        homePage.clickMedicalLiteratureLink();
 
         Assertions.assertEquals(HomePageMessage.MEDICAL_LITERATURE_TEXT, homePage.getTextMedicalLiterature());
 

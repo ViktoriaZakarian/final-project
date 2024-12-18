@@ -28,15 +28,23 @@ public class HomePageXpath {
     public static final String FICTION_TEXT_XPATH = "//h1[contains(text(), 'Художественная литература')]";
 
     public static final String ESOTERICISM_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Эзотерика']";
+
     public static final String PSYCHOLOGY_LINK_XPATH = "//a[@class='ok-menu-top__href']//span[text()='Психология']";
+
     public static final String BUTTON_NEXT_XPATH = "//i[@class='fa fa-chevron-right']";
 
     public static final String BESTSELLERS_LINK_XPATH = "//span[text()='Бестселлеры']";
     public static final String BESTSELLERS_TEXT_XPATH = "//h1[@class='title']";
 
+    public static final String HISTORY_LINK_XPATH = "//span[text()='История']";
+
     public static final String COMPUTER_LITERATURE_LINK_XPATH = "//span[text()='Компьютерная литература']";
     public static final String COMPUTER_LITERATURE_TEXT_XPATH = "//h1[contains(text(), 'Компьютерная литература')]";
 
+    public static final String FOR_CHILDREN_AND_PARENTS = "//span[text()='Детям и родителям']";
+
     public static final String MEDICAL_LITERATURE_LINK_XPATH = "//span[text()='Медицинская литература']";
     public static final String MEDICAL_LITERATURE_TEXT_XPATH = "//h1[contains(text(), 'Медицинская литература')]";
+
+    public static final String HUMANITIES_PUBLISHING_HOUSES_XPATH = "//span[text()='Гуманитарные издательства']";
 }

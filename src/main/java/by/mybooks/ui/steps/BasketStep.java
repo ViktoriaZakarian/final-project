@@ -21,4 +21,52 @@ public class BasketStep {
                 .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
                 .clickButtonBasket();
     }
+
+    public void addBookIntoBasketFromTheFirstPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
+        logger.info("BasketStep - addBookIntoBasketFromTheFirstPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        HomePage homePage = new HomePage();
+        homePage.clickButtonAcceptAllCookies();
+
+        SearchStringPage searchStringPage = new SearchStringPage();
+        searchStringPage
+                .clickLinkInCatalog(catalogSection, link)
+                .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
+                .clickButtonBasket();
+    }
+
+    public void addBookIntoBasketFromTheSecondPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
+        logger.info("BasketStep - addBookIntoBasketFromTheSecondPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        CatalogStep step = new CatalogStep();
+        step.goToTheSecondPageOfTheCatalog();
+
+        SearchStringPage searchStringPage = new SearchStringPage();
+        searchStringPage
+                .clickLinkInCatalog(catalogSection, link)
+                .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
+                .clickButtonBasket();
+    }
+
+    public void addBookIntoBasketFromTheThirdPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
+        logger.info("BasketStep - addBookIntoBasketFromTheThirdPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        CatalogStep step = new CatalogStep();
+        step.goToTheThirdPageOfTheCatalog();
+
+        SearchStringPage searchStringPage = new SearchStringPage();
+        searchStringPage
+                .clickLinkInCatalog(catalogSection, link)
+                .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
+                .clickButtonBasket();
+    }
+
+    public void addBookIntoBasketFromTheFourthPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
+        logger.info("BasketStep - addBookIntoBasketFromTheFourthPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        CatalogStep step = new CatalogStep();
+        step.goToTheFourthPageOfTheCatalog();
+
+        SearchStringPage searchStringPage = new SearchStringPage();
+        searchStringPage
+                .clickLinkInCatalog(catalogSection, link)
+                .clickButtonAddIntoBasket(bookXpath, buttonAddTheBookIntoBasketXpath)
+                .clickButtonBasket();
+    }
 }

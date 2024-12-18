@@ -5,6 +5,7 @@ import by.mybooks.ui.homepage.HomePageXpath;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -58,5 +59,13 @@ public class SearchStringPage {
     public String getAmountOfBooksInTheBasket(String amountOfBooksXpath) {
         logger.info("SearchStringPage - getAmountOfBooksInTheBasket():{}", amountOfBooksXpath);
         return driver.findElement(By.xpath(amountOfBooksXpath)).getAttribute("value");
+    }
+
+    public SearchStringPage clickLinkInCatalog(String catalogSection, String link) {
+        logger.info("SearchStringPage - clickSenseLink()");
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.xpath(catalogSection))).perform();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(By.xpath(link)));
+        return this;
     }
 }

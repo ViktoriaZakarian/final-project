@@ -9,4 +9,5 @@ public class HomePageMessage {
     public static final String BESTSELLERS_TEXT = "БЕСТСЕЛЛЕРЫ";
     public static final String COMPUTER_LITERATURE_TEXT = "КОМПЬЮТЕРНАЯ ЛИТЕРАТУРА";
     public static final String MEDICAL_LITERATURE_TEXT = "МЕДИЦИНСКАЯ ЛИТЕРАТУРА";
+    public static final String IN_STOCK_TEXT = "В НАЛИЧИИ";
 }

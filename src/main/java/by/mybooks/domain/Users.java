@@ -6,13 +6,11 @@ import com.github.javafaker.Faker;
 public class Users {
 
     public static User getUserWithValidData() {
-        Faker faker = new Faker();
-        return new User(faker.internet().emailAddress(), faker.internet().password());
+        return new User(Util.getValidEmail(), Util.getValidPassword());
     }
 
     public static User getUserWithInvalidData() {
-        Faker faker = new Faker();
-        return new User(faker.name().username(), Util.getRandomPasswordConsistsOfSymbols());
+        return new User(Util.getInvalidEmail(), Util.getRandomPasswordConsistsOfSymbols());
     }
 
     public static User getUserWithNoData() {
@@ -20,26 +18,30 @@ public class Users {
     }
 
     public static User getUserWithValidEmailAndNoPassword() {
-        Faker faker = new Faker();
-        return new User(faker.internet().emailAddress(), "");
+        return new User(Util.getValidEmail(), "");
     }
 
     public static User getUserWithNoEmailAndValidPassword() {
-        Faker faker = new Faker();
-        return new User("", faker.internet().password());
+        return new User("", Util.getValidPassword());
     }
 
     public static User getUserWithInvalidEmailAndNoPassword() {
-        Faker faker = new Faker();
-        return new User(faker.name().username(), "");
+        return new User(Util.getInvalidEmail(), "");
     }
 
     public static User getUserWithNoEmailAndInvalidPassword() {
         return new User("", Util.getRandomPasswordConsistsOfSymbols());
     }
 
+    public static User getUserWithValidEmailAndInvalidPassword() {
+        return new User(Util.getValidEmail(), Util.getRandomPasswordConsistsOfSymbols());
+    }
+
+    public static User getUserWithInvalidEmailAndValidPassword() {
+        return new User(Util.getInvalidEmail(), Util.getValidPassword());
+    }
+
     public static User getUserWithValidEmail() {
-        Faker faker = new Faker();
-        return new User(faker.internet().emailAddress());
+        return new User(Util.getValidEmail());
     }
 }

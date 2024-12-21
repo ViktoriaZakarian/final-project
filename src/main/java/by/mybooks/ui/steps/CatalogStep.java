@@ -9,7 +9,7 @@ public class CatalogStep {
     private static final Logger logger = LogManager.getLogger();
 
     public void goToCatalogSectionLink(String catalogSectionLinkXpath) {
-        logger.info("CatalogStep - goToCatalogSectionLink()", catalogSectionLinkXpath);
+        logger.info("CatalogStep - goToCatalogSectionLink():{}", catalogSectionLinkXpath);
         HomePage homePage = new HomePage();
         homePage
                 .clickButtonAcceptAllCookies()

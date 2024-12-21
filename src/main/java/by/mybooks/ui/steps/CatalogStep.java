@@ -42,4 +42,15 @@ public class CatalogStep {
                 .clickButtonNext()
                 .clickButtonNext();
     }
+
+    public void goToTheFifthPageOfTheCatalog() {
+        logger.info("CatalogStep - goToTheFifthPageOfTheCatalog()");
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickButtonNext();
+    }
 }

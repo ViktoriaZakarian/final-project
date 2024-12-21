@@ -151,7 +151,7 @@ public class SearchStringPageTest extends BaseTest {
                 "'Детям и родителям', добавление книги 'Французские дети не капризничают' в корзину, проверка, что книга добавилась в корзину");
 
         BasketStep step = new BasketStep();
-        step.addBookIntoBasketFromTheThirdPageOfCatalog(HomePageXpath.FOR_CHILDREN_AND_PARENTS,
+        step.addBookIntoBasketFromTheThirdPageOfCatalog(HomePageXpath.FOR_CHILDREN_AND_PARENTS_LINK_XPATH,
                 SearchStringXpath.BOOKS_FOR_PARENTS_LINK_XPATH, SearchStringXpath.BOOK_FRENCH_CHILDREN_ARE_NOT_NAUGHTY_XPATH,
                 SearchStringXpath.BUTTON_ADD_BOOK_FRENCH_CHILDREN_ARE_NOT_NAUGHTY_INTO_BASKET_XPATH);
 
@@ -173,7 +173,7 @@ public class SearchStringPageTest extends BaseTest {
                 "добавление книги 'Жестокий Принц' в корзину, проверка, что книга добавилась в корзину");
 
         BasketStep step = new BasketStep();
-        step.addBookIntoBasketFromTheFourthPageOfCatalog(HomePageXpath.HUMANITIES_PUBLISHING_HOUSES_XPATH,
+        step.addBookIntoBasketFromTheFourthPageOfCatalog(HomePageXpath.HUMANITIES_PUBLISHING_HOUSES_LINK_XPATH,
                 SearchStringXpath.MAZE_LINK_XPATH, SearchStringXpath.BOOK_CRUEL_PRINCE_XPATH,
                 SearchStringXpath.BUTTON_ADD_BOOK_CRUEL_PRINCE_INTO_BASKET_XPATH);
 

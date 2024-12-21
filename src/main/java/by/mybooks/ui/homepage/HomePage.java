@@ -44,64 +44,20 @@ public class HomePage {
         return driver.findElement(By.xpath(HomePageXpath.PAYMENT_AND_DELIVERY_TEXT_XPATH)).getText();
     }
 
-    public HomePage clickFictionLink() {
-        logger.info("HomePage - clickFictionLink()");
-        driver.findElement(By.xpath(HomePageXpath.FICTION_LINK_XPATH)).click();
-        return this;
-    }
-
-    public String getTextFiction() {
-        logger.info("HomePage - getTextFiction()");
-        return driver.findElement(By.xpath(HomePageXpath.FICTION_TEXT_XPATH)).getText();
-    }
-
-    public HomePage clickNewYearLink() {
-        logger.info("HomePage - clickNewYearLink()");
-        driver.findElement(By.xpath(HomePageXpath.NEW_YEAR_LINK_XPATH)).click();
-        return this;
-    }
-
-    public String getTextNewYear() {
-        logger.info("HomePage - getTextNewYear()");
-        return driver.findElement(By.xpath(HomePageXpath.NEW_YEAR_TEXT_XPATH)).getText();
-    }
-
     public HomePage clickButtonNext() {
         logger.info("HomePage - clickButtonNext()");
         driver.findElement(By.xpath(HomePageXpath.BUTTON_NEXT_XPATH)).click();
         return this;
     }
 
-    public HomePage clickBestsellersLink() {
-        logger.info("HomePage - clickBestsellersLink()");
-        driver.findElement(By.xpath(HomePageXpath.BESTSELLERS_LINK_XPATH)).click();
+    public HomePage clickCatalogSectionLink(String catalogSectionLinkXpath) {
+        logger.info("HomePage - clickCatalogSectionLink:{}", catalogSectionLinkXpath);
+        driver.findElement(By.xpath(catalogSectionLinkXpath)).click();
         return this;
     }
 
-    public String getTextBestsellers() {
-        logger.info("HomePage - getTextBestsellers()");
-        return driver.findElement(By.xpath(HomePageXpath.BESTSELLERS_TEXT_XPATH)).getText();
-    }
-
-    public HomePage clickComputerLiteratureLink() {
-        logger.info("HomePage - clickComputerLiteratureLink()");
-        driver.findElement(By.xpath(HomePageXpath.COMPUTER_LITERATURE_LINK_XPATH)).click();
-        return this;
-    }
-
-    public String getTextComputerLiterature() {
-        logger.info("HomePage - getTextComputerLiterature()");
-        return driver.findElement(By.xpath(HomePageXpath.COMPUTER_LITERATURE_TEXT_XPATH)).getText();
-    }
-
-    public HomePage clickMedicalLiteratureLink() {
-        logger.info("HomePage - clickMedicalLiteratureLink()");
-        driver.findElement(By.xpath(HomePageXpath.MEDICAL_LITERATURE_LINK_XPATH)).click();
-        return this;
-    }
-
-    public String getTextMedicalLiterature() {
-        logger.info("HomePage - getTextMedicalLiterature()");
-        return driver.findElement(By.xpath(HomePageXpath.MEDICAL_LITERATURE_TEXT_XPATH)).getText();
+    public String getTextOfTheCatalogSectionTitle() {
+        logger.info("HomePage - getTextOfTheCatalogSectionTitle");
+        return driver.findElement(By.xpath(HomePageXpath.TITLE_TEXT_XPATH)).getText();
     }
 }

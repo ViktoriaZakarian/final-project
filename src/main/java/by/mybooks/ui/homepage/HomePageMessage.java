@@ -7,9 +7,9 @@ public class HomePageMessage {
     public static final String NEW_YEAR_TEXT = "НОВОГОДНИЕ ПОДАРКИ";
     public static final String IN_STOCK_TEXT = "В НАЛИЧИИ";
     public static final String NEW_PRODUCTS_TEXT = "НОВИНКИ";
-    public static final String BOOKS_FOR_CHILDREN_TEXT = "КНИГИ ДЛЯ ДЕТЕЙ";
+    public static final String BOOKS_FOR_CHILDREN_TEXT = "ПОДАРКИ ДЕТЯМ";
     public static final String FICTION_TEXT = "ХУДОЖЕСТВЕННАЯ ЛИТЕРАТУРА";
-    public static final String ESOTERICISM_TEXT = "ЭЗОТЕРИКА";
+    public static final String ESOTERICISM_TEXT = "ЭЗОТЕРИКА, ОККУЛЬТНЫЕ НАУКИ";
     public static final String PSYCHOLOGY_TEXT = "ПСИХОЛОГИЯ";
     public static final String PHILOSOPHY_SOCIOLOGY_TEXT = "ФИЛОСОФИЯ. СОЦИОЛОГИЯ";
     public static final String BESTSELLERS_TEXT = "БЕСТСЕЛЛЕРЫ";

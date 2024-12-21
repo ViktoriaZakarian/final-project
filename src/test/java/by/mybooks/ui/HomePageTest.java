@@ -2,6 +2,7 @@ package by.mybooks.ui;
 
 import by.mybooks.ui.homepage.HomePage;
 import by.mybooks.ui.homepage.HomePageMessage;
+import by.mybooks.ui.homepage.HomePageXpath;
 import by.mybooks.ui.steps.CatalogStep;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,19 +50,18 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("проверка открытия ссылки 'Художественная литература'")
-    public void testOpenFictionLink() {
+    @DisplayName("проверка открытия ссылки 'В наличии'")
+    public void testOpenInStockLink() {
 
-        logger.info("НАЧАЛО - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
+        logger.info("НАЧАЛО - Тест testOpenInStockLink() проверка открытия ссылки 'В наличии'");
 
+        CatalogStep step = new CatalogStep();
+        step.goToCatalogSectionLink(HomePageXpath.IN_STOCK_LINK_XPATH);
         HomePage homePage = new HomePage();
-        homePage
-                .clickButtonAcceptAllCookies()
-                .clickFictionLink();
 
-        Assertions.assertEquals(HomePageMessage.FICTION_TEXT, homePage.getTextFiction());
+        Assertions.assertEquals(HomePageMessage.IN_STOCK_TEXT, homePage.getTextOfTheCatalogSectionTitle());
 
-        logger.info("КОНЕЦ - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
+        logger.info("КОНЕЦ - Тест testOpenInStockLink() проверка открытия ссылки 'В наличии'");
     }
 
     @Test
@@ -70,14 +70,43 @@ public class HomePageTest extends BaseTest {
 
         logger.info("НАЧАЛО - Тест testOpenNewYearLink() проверка открытия ссылки 'Новый год'");
 
+        CatalogStep step = new CatalogStep();
+        step.goToCatalogSectionLink(HomePageXpath.NEW_YEAR_LINK_XPATH);
         HomePage homePage = new HomePage();
-        homePage
-                .clickButtonAcceptAllCookies()
-                .clickNewYearLink();
 
-        Assertions.assertEquals(HomePageMessage.NEW_YEAR_TEXT, homePage.getTextNewYear());
+        Assertions.assertEquals(HomePageMessage.NEW_YEAR_TEXT, homePage.getTextOfTheCatalogSectionTitle());
 
         logger.info("КОНЕЦ - Тест testOpenNewYearLink() проверка открытия ссылки 'Новый год'");
+    }
+
+    @Test
+    @DisplayName("проверка открытия ссылки 'Новый год'")
+    public void testOpenNewProductsLink() {
+
+        logger.info("НАЧАЛО - Тест testOpenNewProductsLink() проверка открытия ссылки 'Новинки'");
+
+        CatalogStep step = new CatalogStep();
+        step.goToCatalogSectionLink(HomePageXpath.NEW_PRODUCTS_LINK_XPATH);
+        HomePage homePage = new HomePage();
+
+        Assertions.assertEquals(HomePageMessage.NEW_PRODUCTS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест testOpenNewProductsLink() проверка открытия ссылки 'Новинки'");
+    }
+
+    @Test
+    @DisplayName("проверка открытия ссылки 'Художественная литература'")
+    public void testOpenFictionLink() {
+
+        logger.info("НАЧАЛО - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
+
+        CatalogStep step = new CatalogStep();
+        step.goToCatalogSectionLink(HomePageXpath.FICTION_LINK_XPATH);
+        HomePage homePage = new HomePage();
+
+        Assertions.assertEquals(HomePageMessage.FICTION_TEXT, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
     }
 
     @Test
@@ -89,9 +118,9 @@ public class HomePageTest extends BaseTest {
         CatalogStep step = new CatalogStep();
         step.goToTheSecondPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage.clickBestsellersLink();
+        homePage.clickCatalogSectionLink(HomePageXpath.BESTSELLERS_LINK_XPATH);
 
-        Assertions.assertEquals(HomePageMessage.BESTSELLERS_TEXT, homePage.getTextBestsellers());
+        Assertions.assertEquals(HomePageMessage.BESTSELLERS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
 
         logger.info("КОНЕЦ - Тест testOpenBestsellersLink() проверка открытия ссылки 'Бестселлеры'");
     }
@@ -105,9 +134,9 @@ public class HomePageTest extends BaseTest {
         CatalogStep step =new CatalogStep();
         step.goToTheThirdPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage.clickComputerLiteratureLink();
+        homePage.clickCatalogSectionLink(HomePageXpath.COMPUTER_LITERATURE_LINK_XPATH);
 
-        Assertions.assertEquals(HomePageMessage.COMPUTER_LITERATURE_TEXT, homePage.getTextComputerLiterature());
+        Assertions.assertEquals(HomePageMessage.COMPUTER_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
 
         logger.info("КОНЕЦ - Тест testOpenComputerLiteratureLink() проверка открытия ссылки 'Компьютерная литература'");
     }
@@ -121,9 +150,9 @@ public class HomePageTest extends BaseTest {
         CatalogStep step = new CatalogStep();
         step.goToTheFourthPageOfTheCatalog();
         HomePage homePage = new HomePage();
-        homePage.clickMedicalLiteratureLink();
+        homePage.clickCatalogSectionLink(HomePageXpath.MEDICAL_LITERATURE_LINK_XPATH);
 
-        Assertions.assertEquals(HomePageMessage.MEDICAL_LITERATURE_TEXT, homePage.getTextMedicalLiterature());
+        Assertions.assertEquals(HomePageMessage.MEDICAL_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
 
         logger.info("КОНЕЦ - Тест testOpenMedicalLiteratureLink() проверка открытия ссылки 'Медицинская литература'");
     }

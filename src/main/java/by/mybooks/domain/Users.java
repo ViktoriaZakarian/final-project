@@ -1,7 +1,6 @@
 package by.mybooks.domain;
 
 import by.mybooks.util.Util;
-import com.github.javafaker.Faker;
 
 public class Users {
 

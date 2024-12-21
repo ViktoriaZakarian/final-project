@@ -8,6 +8,14 @@ public class CatalogStep {
 
     private static final Logger logger = LogManager.getLogger();
 
+    public void goToCatalogSectionLink(String catalogSectionLinkXpath) {
+        logger.info("CatalogStep - goToCatalogSectionLink()", catalogSectionLinkXpath);
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickCatalogSectionLink(catalogSectionLinkXpath);
+    }
+
     public void goToTheSecondPageOfTheCatalog() {
         logger.info("CatalogStep - goToTheSecondPageOfTheCatalog()");
         HomePage homePage = new HomePage();

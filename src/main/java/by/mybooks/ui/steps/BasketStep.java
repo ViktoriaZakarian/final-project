@@ -10,7 +10,7 @@ public class BasketStep {
     private static final Logger logger = LogManager.getLogger();
 
     public void addBookIntoBasket(String book, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("BasketStep - addBookIntoBasket():{}", book, bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("BasketStep - addBookIntoBasket(): book{}, ", book);
         HomePage homePage = new HomePage();
         homePage.clickButtonAcceptAllCookies();
 
@@ -23,7 +23,8 @@ public class BasketStep {
     }
 
     public void addBookIntoBasketFromTheFirstPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("BasketStep - addBookIntoBasketFromTheFirstPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("BasketStep - addBookIntoBasketFromTheFirstPageOfCatalog(): catalogSection{}, link{}, bookXpath{}",
+                catalogSection, link, bookXpath);
         HomePage homePage = new HomePage();
         homePage.clickButtonAcceptAllCookies();
 
@@ -35,7 +36,8 @@ public class BasketStep {
     }
 
     public void addBookIntoBasketFromTheSecondPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("BasketStep - addBookIntoBasketFromTheSecondPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("BasketStep - addBookIntoBasketFromTheSecondPageOfCatalog(): catalogSection{}, link{}, bookXpath{}",
+                catalogSection, link, bookXpath);
         CatalogStep step = new CatalogStep();
         step.goToTheSecondPageOfTheCatalog();
 
@@ -47,7 +49,8 @@ public class BasketStep {
     }
 
     public void addBookIntoBasketFromTheThirdPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("BasketStep - addBookIntoBasketFromTheThirdPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("BasketStep - addBookIntoBasketFromTheThirdPageOfCatalog():catalogSection{}, link{}, bookXpath{}",
+                catalogSection, link, bookXpath);
         CatalogStep step = new CatalogStep();
         step.goToTheThirdPageOfTheCatalog();
 
@@ -59,7 +62,8 @@ public class BasketStep {
     }
 
     public void addBookIntoBasketFromTheFourthPageOfCatalog(String catalogSection, String link, String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("BasketStep - addBookIntoBasketFromTheFourthPageOfCatalog():{}", catalogSection, link, bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("BasketStep - addBookIntoBasketFromTheFourthPageOfCatalog(): catalogSection{}, link{}, bookXpath{}",
+                catalogSection, link, bookXpath);
         CatalogStep step = new CatalogStep();
         step.goToTheFourthPageOfTheCatalog();
 

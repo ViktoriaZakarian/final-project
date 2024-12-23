@@ -3,7 +3,6 @@ package by.mybooks.ui.homepage;
 public class HomePageXpath {
 
     public static final String BUTTON_ACCEPT_ALL_COOKIES_XPATH = "//button[@data-button-ck-action='accept-all']";
-    public static final String ADVANCED_SEARCH_LINK_XPATH = "//span[text()='Расширенный поиск']";
 
     public static final String PAYMENT_AND_DELIVERY_LINK_XPATH = "//span[text()='Оплата и доставка']";
     public static final String PAYMENT_AND_DELIVERY_TEXT_XPATH = "//h1[text()='Оплата и доставка']";

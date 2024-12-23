@@ -28,8 +28,8 @@ public class SearchStringXpath {
     public static final String THE_AMOUNT_OF_BOOKS_IN_THE_BASKET_XPATH = "//input[@id='item_836120']";
 
     public static final String SENSE_LINK_XPATH = "//a[@class='ok-menu-top__href']//..//*//a[contains(text(),'Смысл')]";
-    public static final String BOOK_DIAGNOSIS_OF_APATHY_XPATH = "//a[@title='Диагностика апатии. Золотарева А.А.']" +
-            "//..//..//..//..//div[@class='ok-product__main ']";
+    public static final String BOOK_DIAGNOSIS_OF_APATHY_XPATH = "//meta[@content='Диагностика апатии., Золотарева А.А. , " +
+            "Смысл, 978-5-89357-403-6']//..//div[@class='ok-product__main ']";
     public static final String BUTTON_ADD_BOOK_DIAGNOSIS_OF_APATHY_INTO_BASKET_XPATH = "//meta[@data-id='1119600']" +
             "//..//button[@data-gtm-id='add-to-cart-product']";
     public static final String BOOK_DIAGNOSIS_OF_APATHY_IN_THE_BASKET_XPATH = "//a[@href='/psihologiya-2/diagnostika-apatii/']";

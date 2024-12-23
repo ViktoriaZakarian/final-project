@@ -32,7 +32,8 @@ public class SearchStringPage {
     }
 
     public SearchStringPage clickButtonAddIntoBasket(String bookXpath, String buttonAddTheBookIntoBasketXpath) {
-        logger.info("SearchStringPage - clickButtonAddIntoBasket():{}", bookXpath, buttonAddTheBookIntoBasketXpath);
+        logger.info("SearchStringPage - clickButtonAddIntoBasket(): bookXpath{}, buttonAddTheBookIntoBasketXpath{}",
+                bookXpath, buttonAddTheBookIntoBasketXpath);
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(By.xpath(bookXpath))).perform();
         driver.findElement(By.xpath(buttonAddTheBookIntoBasketXpath)).click();

@@ -10,7 +10,7 @@ public class LoginStep {
     private static final Logger logger = LogManager.getLogger();
 
     public void fillFormAndSubmit(String email, String password) {
-        logger.info("LoginStep - fillFormAndSubmit:{}", email, password);
+        logger.info("LoginStep - fillFormAndSubmit: email{}, password{}", email, password);
         LoginPage loginPage = new LoginPage();
 
         loginPage

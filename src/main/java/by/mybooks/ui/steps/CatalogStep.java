@@ -24,6 +24,15 @@ public class CatalogStep {
                 .clickButtonNext();
     }
 
+    public void goToTheSecondPageOfTheCatalog(String catalogSectionLinkXpath) {
+        logger.info("CatalogStep - goToTheSecondPageOfTheCatalog() {}", catalogSectionLinkXpath);
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickButtonNext()
+                .clickCatalogSectionLink(catalogSectionLinkXpath);
+    }
+
     public void goToTheThirdPageOfTheCatalog() {
         logger.info("CatalogStep - goToTheThirdPageOfTheCatalog()");
         HomePage homePage = new HomePage();
@@ -31,6 +40,17 @@ public class CatalogStep {
                 .clickButtonAcceptAllCookies()
                 .clickButtonNext()
                 .clickButtonNext();
+    }
+
+    public void goToTheThirdPageOfTheCatalog(String catalogSectionLinkXpath) {
+        logger.info("CatalogStep - goToTheThirdPageOfTheCatalog() {}", catalogSectionLinkXpath);
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickCatalogSectionLink(catalogSectionLinkXpath);
+
     }
 
     public void goToTheFourthPageOfTheCatalog() {
@@ -43,6 +63,17 @@ public class CatalogStep {
                 .clickButtonNext();
     }
 
+    public void goToTheFourthPageOfTheCatalog(String catalogSectionLinkXpath) {
+        logger.info("CatalogStep - goToTheFourthPageOfTheCatalog() {}", catalogSectionLinkXpath);
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickCatalogSectionLink(catalogSectionLinkXpath);
+    }
+
     public void goToTheFifthPageOfTheCatalog() {
         logger.info("CatalogStep - goToTheFifthPageOfTheCatalog()");
         HomePage homePage = new HomePage();
@@ -52,5 +83,17 @@ public class CatalogStep {
                 .clickButtonNext()
                 .clickButtonNext()
                 .clickButtonNext();
+    }
+
+    public void goToTheFifthPageOfTheCatalog(String catalogSectionLinkXpath) {
+        logger.info("CatalogStep - goToTheFifthPageOfTheCatalog() {}", catalogSectionLinkXpath);
+        HomePage homePage = new HomePage();
+        homePage
+                .clickButtonAcceptAllCookies()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickButtonNext()
+                .clickCatalogSectionLink(catalogSectionLinkXpath);
     }
 }

@@ -21,7 +21,6 @@ public class LoginStep {
     }
 
     public void fillFormAndSubmit(User user) {
-        logger.info("LoginStep - fillFormAndSubmit():{}", user);
         fillFormAndSubmit(user.getEmail(), user.getPassword());
     }
 }

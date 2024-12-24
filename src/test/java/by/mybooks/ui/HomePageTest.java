@@ -10,6 +10,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HomePageTest extends BaseTest {
 
@@ -21,6 +28,133 @@ public class HomePageTest extends BaseTest {
     void setUpHomePage() {
         homePage = new HomePage();
         step = new CatalogStep();
+    }
+
+    static Stream<Arguments> provideFirstCatalogSectionLinks() {
+        return Stream.of(
+                Arguments.of("В наличии", HomePageXpath.IN_STOCK_LINK_XPATH, HomePageMessage.IN_STOCK_TEXT),
+                Arguments.of("Новый год", HomePageXpath.NEW_YEAR_LINK_XPATH, HomePageMessage.NEW_YEAR_TEXT),
+                Arguments.of("Новинки", HomePageXpath.NEW_PRODUCTS_LINK_XPATH, HomePageMessage.NEW_PRODUCTS_TEXT),
+                Arguments.of("Книги для детей", HomePageXpath.BOOKS_FOR_CHILDREN_LINK_XPATH,
+                        HomePageMessage.BOOKS_FOR_CHILDREN_TEXT),
+                Arguments.of("Художественная литература", HomePageXpath.FICTION_LINK_XPATH,
+                        HomePageMessage.FICTION_TEXT),
+                Arguments.of("Эзотерика", HomePageXpath.ESOTERICISM_LINK_XPATH, HomePageMessage.ESOTERICISM_TEXT),
+                Arguments.of("Психология", HomePageXpath.PSYCHOLOGY_LINK_XPATH, HomePageMessage.PSYCHOLOGY_TEXT)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFirstCatalogSectionLinks")
+    @DisplayName("Проверка открытия ссылок в каталоге")
+    void testFirstCatalogSectionLinks(String testName, String linkXpath, String expectedText) {
+        logger.info("НАЧАЛО - Тест проверки открытия ссылки на первой странице каталога '{}'", testName);
+
+        step.goToCatalogSectionLink(linkXpath);
+
+        assertEquals(expectedText, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест проверки открытия ссылки на первой странице каталога'{}'", testName);
+    }
+
+    static Stream<Arguments> provideSecondCatalogSectionLinks() {
+        return Stream.of(
+                Arguments.of("Философия. Социология", HomePageXpath.PHILOSOPHY_SOCIOLOGY_LINK_XPATH,
+                        HomePageMessage.PHILOSOPHY_SOCIOLOGY_TEXT),
+                Arguments.of("Бестселлеры", HomePageXpath.BESTSELLERS_LINK_XPATH, HomePageMessage.BESTSELLERS_TEXT),
+                Arguments.of("Уценка", HomePageXpath.MARKDOWN_LINK_XPATH, HomePageMessage.MARKDOWN_TEXT),
+                Arguments.of("История", HomePageXpath.HISTORY_LINK_XPATH, HomePageMessage.HISTORY_TEXT),
+                Arguments.arguments("УРСС наука, образование, юриспруденция", HomePageXpath.URSS_SCIENCE_EDUCATION_JURISPRUDENCE_LINK_XPATH,
+                        HomePageMessage.URSS_SCIENCE_EDUCATION_JURISPRUDENCE_TEXT)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideSecondCatalogSectionLinks")
+    @DisplayName("Проверка открытия ссылок в каталоге")
+    void testSecondCatalogSectionLinks(String testName, String linkXpath, String expectedText) {
+        logger.info("НАЧАЛО - Тест проверки открытия ссылки на второй странице каталога '{}'", testName);
+
+        step.goToTheSecondPageOfTheCatalog(linkXpath);
+
+        assertEquals(expectedText, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест проверки открытия ссылки на второй странице каталога '{}'", testName);
+    }
+
+    static Stream<Arguments> provideThirdCatalogSectionLinks() {
+        return Stream.of(
+                Arguments.of("Деловая литература", HomePageXpath.BUSINESS_LITERATURE_LINK_XPATH,
+                        HomePageMessage.BUSINESS_LITERATURE_TEXT),
+                Arguments.of("Детям и родителям", HomePageXpath.FOR_CHILDREN_AND_PARENTS_LINK_XPATH,
+                        HomePageMessage.FOR_CHILDREN_AND_PARENTS_TEXT),
+                Arguments.of("Учебная литература", HomePageXpath.EDUCATIONAL_LITERATURE_LINK_XPATH,
+                        HomePageMessage.EDUCATIONAL_LITERATURE_TEXT),
+                Arguments.of("Искусство. Культура", HomePageXpath.ART_CULTURE_LINK_XPATH,
+                        HomePageMessage.ART_CULTURE_TEXT),
+                Arguments.of("Компьютерная литература", HomePageXpath.COMPUTER_LITERATURE_LINK_XPATH,
+                        HomePageMessage.COMPUTER_LITERATURE_TEXT)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideThirdCatalogSectionLinks")
+    @DisplayName("Проверка открытия ссылок в каталоге")
+    void testThirdCatalogSectionLinks(String testName, String linkXpath, String expectedText) {
+        logger.info("НАЧАЛО - Тест проверки открытия ссылки на третьей странице каталога '{}'", testName);
+
+        step.goToTheThirdPageOfTheCatalog(linkXpath);
+
+        assertEquals(expectedText, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест проверки открытия ссылки на третьей странице каталога '{}'", testName);
+    }
+
+    static Stream<Arguments> provideFourthCatalogSectionLinks() {
+        return Stream.of(
+                Arguments.of("Медицинская литература", HomePageXpath.MEDICAL_LITERATURE_LINK_XPATH,
+                        HomePageMessage.MEDICAL_LITERATURE_TEXT),
+                Arguments.of("Нехудожественная литература", HomePageXpath.NONFICTION_LINK_XPATH,
+                        HomePageMessage.NONFICTION_TEXT),
+                Arguments.of("Гуманитарные издательства", HomePageXpath.HUMANITIES_PUBLISHING_HOUSES_LINK_XPATH,
+                        HomePageMessage.HUMANITIES_PUBLISHING_HOUSES_TEXT),
+                Arguments.of("Прочие товарыа", HomePageXpath.OTHER_PRODUCTS_LINK_XPATH,
+                        HomePageMessage.OTHER_PRODUCTS_TEXT)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFourthCatalogSectionLinks")
+    @DisplayName("Проверка открытия ссылок в каталоге")
+    void testFourthCatalogSectionLinks(String testName, String linkXpath, String expectedText) {
+        logger.info("НАЧАЛО - Тест проверки открытия ссылки на четвертой странице каталога '{}'", testName);
+
+        step.goToTheFourthPageOfTheCatalog(linkXpath);
+
+        assertEquals(expectedText, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест проверки открытия ссылки на четвертой странице каталога '{}'", testName);
+    }
+
+    static Stream<Arguments> provideFifthCatalogSectionLinks() {
+        return Stream.of(
+                Arguments.of("Домашний круг", HomePageXpath.HOME_CIRCLE_LINK_XPATH, HomePageMessage.HOME_CIRCLE_TEXT),
+                Arguments.of("Манн, Иванов И Фербер", HomePageXpath.MANN_IVANOV_FERBER_LINK_XPATH,
+                        HomePageMessage.MANN_IVANOV_FERBER_TEXT)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFifthCatalogSectionLinks")
+    @DisplayName("Проверка открытия ссылок на пятой странице каталога")
+    void testFifthCatalogSectionLinks(String testName, String linkXpath, String expectedText) {
+        logger.info("НАЧАЛО - Тест проверки открытия ссылки на пятой странице каталога '{}'", testName);
+
+        step.goToTheFifthPageOfTheCatalog(linkXpath);
+
+        assertEquals(expectedText, homePage.getTextOfTheCatalogSectionTitle());
+
+        logger.info("КОНЕЦ - Тест проверки открытия ссылки на пятой странице каталога '{}'", testName);
     }
 
     @Test
@@ -53,322 +187,5 @@ public class HomePageTest extends BaseTest {
         Assertions.assertEquals(HomePageMessage.PAYMENT_AND_DELIVERY_TEXT, homePage.getTextPaymentAndDelivery());
 
         logger.info("КОНЕЦ - testOpenPaymentAndDeliveryLink() проверка открытия ссылки 'Оплата и доставка'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'В наличии'")
-    public void testOpenInStockLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenInStockLink() проверка открытия ссылки 'В наличии'");
-
-        step.goToCatalogSectionLink(HomePageXpath.IN_STOCK_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.IN_STOCK_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenInStockLink() проверка открытия ссылки 'В наличии'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Новый год'")
-    public void testOpenNewYearLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenNewYearLink() проверка открытия ссылки 'Новый год'");
-
-        step.goToCatalogSectionLink(HomePageXpath.NEW_YEAR_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.NEW_YEAR_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenNewYearLink() проверка открытия ссылки 'Новый год'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Новинки'")
-    public void testOpenNewProductsLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenNewProductsLink() проверка открытия ссылки 'Новинки'");
-
-        step.goToCatalogSectionLink(HomePageXpath.NEW_PRODUCTS_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.NEW_PRODUCTS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenNewProductsLink() проверка открытия ссылки 'Новинки'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Книги для детей'")
-    public void testOpenBooksForChildrenLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenBooksForChildrenLink() проверка открытия ссылки 'Книги для детей'");
-
-        step.goToCatalogSectionLink(HomePageXpath.BOOKS_FOR_CHILDREN_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.BOOKS_FOR_CHILDREN_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenBooksForChildrenLink() проверка открытия ссылки 'Книги для детей'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Художественная литература'")
-    public void testOpenFictionLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
-
-        step.goToCatalogSectionLink(HomePageXpath.FICTION_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.FICTION_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenFictionLink() проверка открытия ссылки 'Художественная литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Эзотерика'")
-    public void testOpenEsotericismLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenEsotericismLink() проверка открытия ссылки 'Эзотерика'");
-
-        step.goToCatalogSectionLink(HomePageXpath.ESOTERICISM_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.ESOTERICISM_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenEsotericismLink() проверка открытия ссылки 'Эзотерика'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Психология'")
-    public void testOpenPsychologyLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenPsychologyLink() проверка открытия ссылки 'Психология'");
-
-        step.goToCatalogSectionLink(HomePageXpath.PSYCHOLOGY_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.PSYCHOLOGY_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenPsychologyLink() проверка открытия ссылки 'Психология'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Философия. Социология'")
-    public void testOpenPhilosophySociologyLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenPhilosophySociologyLink() проверка открытия ссылки 'Философия. Социология'");
-
-        step.goToTheSecondPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.PHILOSOPHY_SOCIOLOGY_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.PHILOSOPHY_SOCIOLOGY_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenPhilosophySociologyLink() проверка открытия ссылки 'Философия. Социология'");
-    }
-
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Бестселлеры'")
-    public void testOpenBestsellersLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenBestsellersLink() проверка открытия ссылки 'Бестселлеры'");
-
-        step.goToTheSecondPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.BESTSELLERS_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.BESTSELLERS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenBestsellersLink() проверка открытия ссылки 'Бестселлеры'");
-    }
-
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Уценка'")
-    public void testOpenMarkdownLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenMarkdownLink() проверка открытия ссылки 'Уценка'");
-
-        step.goToTheSecondPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.MARKDOWN_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.MARKDOWN_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenMarkdownLink() проверка открытия ссылки 'Уценка'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'История'")
-    public void testOpenHistoryLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenHistoryLink() проверка открытия ссылки 'История'");
-
-        step.goToTheSecondPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.HISTORY_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.HISTORY_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenHistoryLink() проверка открытия ссылки 'История'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'УРСС наука, образование, юриспруденция'")
-    public void testOpenURSSScienceEducationJurisprudenceLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenURSSScienceEducationJurisprudenceLink() проверка открытия ссылки 'УРСС наука, образование, юриспруденция'");
-
-        step.goToTheSecondPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.URSS_SCIENCE_EDUCATION_JURISPRUDENCE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.URSS_SCIENCE_EDUCATION_JURISPRUDENCE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenURSSScienceEducationJurisprudenceLink() проверка открытия ссылки 'УРСС наука, образование, юриспруденция'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Деловая литература'")
-    public void testOpenBusinessLiteratureLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenBusinessLiteratureLink() проверка открытия ссылки 'Деловая литература'");
-
-        step.goToTheThirdPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.BUSINESS_LITERATURE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.BUSINESS_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenBusinessLiteratureLink() проверка открытия ссылки 'Деловая литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Детям и родителям'")
-    public void testOpenForChildrenAndParentsLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenForChildrenAndParentsLink() проверка открытия ссылки 'Детям и родителям'");
-
-        step.goToTheThirdPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.FOR_CHILDREN_AND_PARENTS_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.FOR_CHILDREN_AND_PARENTS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenForChildrenAndParentsLink() проверка открытия ссылки 'Детям и родителям'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Учебная литература'")
-    public void testOpenEducationalLiteratureLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenEducationalLiteratureLink() проверка открытия ссылки 'Учебная литература'");
-
-        step.goToTheThirdPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.EDUCATIONAL_LITERATURE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.EDUCATIONAL_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenEducationalLiteratureLink() проверка открытия ссылки 'Учебная литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Искусство. Культура'")
-    public void testOpenArtCultureLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenArtCultureLink() проверка открытия ссылки 'Искусство. Культура'");
-
-        step.goToTheThirdPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.ART_CULTURE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.ART_CULTURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenArtCultureLink() проверка открытия ссылки 'Искусство. Культура'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Компьютерная литература'")
-    public void testOpenComputerLiteratureLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenComputerLiteratureLink() проверка открытия ссылки 'Компьютерная литература'");
-
-        step.goToTheThirdPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.COMPUTER_LITERATURE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.COMPUTER_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenComputerLiteratureLink() проверка открытия ссылки 'Компьютерная литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Медицинская литература'")
-    public void testOpenMedicalLiteratureLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenMedicalLiteratureLink() проверка открытия ссылки 'Медицинская литература'");
-
-        step.goToTheFourthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.MEDICAL_LITERATURE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.MEDICAL_LITERATURE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenMedicalLiteratureLink() проверка открытия ссылки 'Медицинская литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Нехудожественная литература'")
-    public void testOpenNonfictionLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenNonfictionLink() проверка открытия ссылки 'Нехудожественная литература'");
-
-        step.goToTheFourthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.NONFICTION_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.NONFICTION_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenNonfictionLink() проверка открытия ссылки 'Нехудожественная литература'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Гуманитарные издательства'")
-    public void testOpenHumanitiesPublishingHousesLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenHumanitiesPublishingHousesLink() проверка открытия ссылки 'Гуманитарные издательства'");
-
-        step.goToTheFourthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.HUMANITIES_PUBLISHING_HOUSES_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.HUMANITIES_PUBLISHING_HOUSES_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenHumanitiesPublishingHousesLink() проверка открытия ссылки 'Гуманитарные издательства'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Прочие товары'")
-    public void testOpenOtherProductsLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenOtherProductsLink() проверка открытия ссылки 'Прочие товары'");
-
-        step.goToTheFourthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.OTHER_PRODUCTS_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.OTHER_PRODUCTS_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenOtherProductsLink() проверка открытия ссылки 'Прочие товары'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Домашний круг'")
-    public void testOpenHomeCircleLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenHomeCircleLink() проверка открытия ссылки 'Домашний круг'");
-
-        step.goToTheFifthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.HOME_CIRCLE_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.HOME_CIRCLE_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenHomeCircleLink() проверка открытия ссылки 'Домашний круг'");
-    }
-
-    @Test
-    @DisplayName("проверка открытия ссылки 'Манн, Иванов И Фербер'")
-    public void testOpenMannIvanovAndFerberLink() {
-
-        logger.info("НАЧАЛО - Тест testOpenMannIvanovAndFerberLink() проверка открытия ссылки 'Манн, Иванов И Фербер'");
-
-        step.goToTheFifthPageOfTheCatalog();
-        homePage.clickCatalogSectionLink(HomePageXpath.MANN_IVANOV_FERBER_LINK_XPATH);
-
-        Assertions.assertEquals(HomePageMessage.MANN_IVANOV_FERBER_TEXT, homePage.getTextOfTheCatalogSectionTitle());
-
-        logger.info("КОНЕЦ - Тест testOpenMannIvanovAndFerberLink() проверка открытия ссылки 'Манн, Иванов И Фербер'");
     }
 }

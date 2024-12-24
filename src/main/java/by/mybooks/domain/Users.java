@@ -4,6 +4,8 @@ import by.mybooks.util.Util;
 
 public class Users {
 
+    private static final String NO_DATA = "";
+
     public static User getUserWithValidData() {
         return new User(Util.getValidEmail(), Util.getValidPassword());
     }
@@ -13,23 +15,23 @@ public class Users {
     }
 
     public static User getUserWithNoData() {
-        return new User("", "");
+        return new User(NO_DATA, NO_DATA);
     }
 
     public static User getUserWithValidEmailAndNoPassword() {
-        return new User(Util.getValidEmail(), "");
+        return new User(Util.getValidEmail(), NO_DATA);
     }
 
     public static User getUserWithNoEmailAndValidPassword() {
-        return new User("", Util.getValidPassword());
+        return new User(NO_DATA, Util.getValidPassword());
     }
 
     public static User getUserWithInvalidEmailAndNoPassword() {
-        return new User(Util.getInvalidEmail(), "");
+        return new User(Util.getInvalidEmail(), NO_DATA);
     }
 
     public static User getUserWithNoEmailAndInvalidPassword() {
-        return new User("", Util.getRandomPasswordConsistsOfSymbols());
+        return new User(NO_DATA, Util.getRandomPasswordConsistsOfSymbols());
     }
 
     public static User getUserWithValidEmailAndInvalidPassword() {
